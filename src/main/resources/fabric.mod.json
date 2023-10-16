@@ -1,0 +1,31 @@
+{
+	"schemaVersion": 1,
+	"id": "ticktocktracker",
+	"version": "${version}",
+	"name": "TickTockTracker",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://jonasjones.dev/",
+		"sources": "https://github.com/J-onasJones/TickTockTracker"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/ticktocktracker/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"dev.jonasjones.ticktocktracker.TickTockTracker"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.14.22",
+		"minecraft": "~1.20.2",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
