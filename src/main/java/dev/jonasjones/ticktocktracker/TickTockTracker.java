@@ -29,14 +29,7 @@ public class TickTockTracker implements ModInitializer {
 
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(literal("uptime")
 				.executes(context -> {
-					try {
-						// "Uptime: " + TimeConverter.convertMillisToDuration(System.currentTimeMillis() - startTime)
-						context.getSource().sendMessage(Text.literal("Uptime: " + TimeConverter.convertMillisToDuration(System.currentTimeMillis() - startTime)));
-					} catch (Exception e) {
-						LOGGER.error("Error getting uptime", e);
-					}
-
-
+					context.getSource().sendMessage(Text.literal("Uptime: " + TimeConverter.convertMillisToDuration(System.currentTimeMillis() - startTime)));
 					return 1;
 				})));
 
