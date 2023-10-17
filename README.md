@@ -14,5 +14,5 @@ Run `/uptime` to see the current uptime.
 
 *Output:*
 ```text
-Uptime: 05 Minutes,49 Seconds
+Uptime: 5 Minutes, 49 Seconds
 ```
