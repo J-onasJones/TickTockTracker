@@ -17,12 +17,26 @@ public class TimeConverter {
             duration.append(days).append(" Days, ");
         }
         if (hours > 0 || days > 0) {
-            duration.append(String.format("%02d", hours)).append(" Hours,");
+            if (hours == 1) {
+                duration.append(hours).append(" Hour, ");
+            } else {
+                duration.append(hours).append(" Hours, ");
+            }
         }
         if (minutes > 0 || hours > 0 || days > 0) {
-            duration.append(String.format("%02d", minutes)).append(" Minutes,");
+            if (minutes == 1) {
+                duration.append(minutes).append(" Minute, ");
+            } else {
+                duration.append(minutes).append(" Minutes, ");
+            }
         }
-        duration.append(String.format("%02d", seconds)).append(" Seconds");
+        if (seconds > 0 || minutes > 0 || hours > 0 || days > 0) {
+            if (seconds == 1) {
+                duration.append(seconds).append(" Second");
+            } else {
+                duration.append(seconds).append(" Seconds");
+            }
+        }
 
         return duration.toString();
     }
