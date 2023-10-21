@@ -3,7 +3,8 @@ package dev.jonasjones.ticktocktracker;
 import dev.jonasjones.ticktocktracker.util.TimeConverter;
 import net.fabricmc.api.ModInitializer;
 
-import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
+import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,9 +28,10 @@ public class TickTockTracker implements ModInitializer {
 		// Proceed with mild caution.
 		final long startTime = System.currentTimeMillis();
 
-		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(literal("uptime")
+		CommandRegistrationCallback.EVENT.register((dispatcher, environment) -> dispatcher.register(literal("uptime")
 				.executes(context -> {
-					context.getSource().sendMessage(Text.literal("Uptime: " + TimeConverter.convertMillisToDuration(System.currentTimeMillis() - startTime)));
+					context.getSource().sendFeedback(new LiteralText("Uptime: " + TimeConverter.convertMillisToDuration(System.currentTimeMillis() - startTime)), false);
+					//context.getSource().sendMessage(Text.literal("Uptime: " + TimeConverter.convertMillisToDuration(System.currentTimeMillis() - startTime)));
 					return 1;
 				})));
 
